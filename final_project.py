@@ -11,8 +11,12 @@ HEAD_COLOR = "#7CFC00"
 FOOD_COLOR = "#FF4444"
 BACKGROUND_COLOR = "#111111"
 
+class GameObject:
 
-class Snake:
+    def draw(self):
+        pass
+        
+class Snake(GameObject):
 
     def __init__(self):
         self.coordinates = []
@@ -20,8 +24,11 @@ class Snake:
         for i in range(BODY_PARTS):
             self.coordinates.append([0, 0])
 
+    def draw(self):
+        draw_snake(self)
 
-class Food:
+
+class Food(GameObject):
 
     def __init__(self):
 
@@ -29,6 +36,9 @@ class Food:
             random.randint(0, GAME_WIDTH // SPACE_SIZE - 1) * SPACE_SIZE,
             random.randint(0, GAME_HEIGHT // SPACE_SIZE - 1) * SPACE_SIZE
         ]
+
+def draw(self):
+    draw_food(self)
 
 
 def draw_snake(snake):
